@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { collection, collectionData, doc, docData, Firestore } from '@angular/fire/firestore';
+import {
+    collection,
+    collectionData,
+    deleteDoc,
+    doc,
+    docData,
+    Firestore,
+    setDoc,
+    updateDoc,
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,5 +25,20 @@ export class FirestoreService {
     doc$<T>(path: string): Observable<T> {
         const ref = doc(this.firestore, path);
         return docData(ref, { idField: 'id' }) as Observable<T>;
+    }
+
+    set(path: string, data: unknown) {
+        const ref = doc(this.firestore, path);
+        return setDoc(ref, data);
+    }
+
+    update(path: string, data: Partial<unknown>) {
+        const ref = doc(this.firestore, path);
+        return updateDoc(ref, data);
+    }
+
+    delete(path: string) {
+        const ref = doc(this.firestore, path);
+        return deleteDoc(ref);
     }
 }
