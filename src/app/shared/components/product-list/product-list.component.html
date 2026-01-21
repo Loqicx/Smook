@@ -1,0 +1,10 @@
+<section>
+    <h2>Zutaten</h2>
+
+    <ul>
+        @for (product of products$ | async; track $index) {
+        <li>{{ product.displayName }} ({{ product.source }}) -- {{ product.pricePerPack | number : '1.2-2' }} €</li>
+        <button (click)="onDelete(product.id)">Löschen</button>
+        }
+    </ul>
+</section>
