@@ -3,10 +3,11 @@ import { AsyncPipe, DecimalPipe } from '@angular/common';
 import { ProductService } from '../../../core/services/product.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../../core/models/product.model';
+import { ProductFormComponent } from '../product-form/product-form.component';
 
 @Component({
     selector: 'app-product-list',
-    imports: [AsyncPipe, DecimalPipe],
+    imports: [AsyncPipe, DecimalPipe, ProductFormComponent],
     templateUrl: './product-list.component.html',
     styleUrl: './product-list.component.scss',
 })

@@ -1,6 +1,8 @@
 <section>
     <h2>Zutaten</h2>
 
+    <app-product-form (save)="onCreate($event)"></app-product-form>
+
     <ul>
         @for (product of products$ | async; track $index) {
         <li>{{ product.displayName }} ({{ product.source }}) -- {{ product.pricePerPack | number : '1.2-2' }} €</li>

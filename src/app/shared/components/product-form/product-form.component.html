@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <input placeholder="Produktname" formControlName="productName" />
+    <input placeholder="Anzeigename" formControlName="displayName" />
+    <input placeholder="Markt" formControlName="source" />
+    <input type="number" placeholder="Preis" formControlName="pricePerPack" />
+    <input type="number" placeholder="Gewicht optional" formControlName="weight" />
+
+    <button type="submit" [disabled]="form.invalid">Hinzufügen</button>
+</form>
