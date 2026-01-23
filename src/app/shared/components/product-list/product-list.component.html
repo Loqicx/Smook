@@ -3,7 +3,10 @@
 
     <ul>
         @for (product of products$ | async; track $index) {
-        <li>{{ product.displayName }} ({{ product.source }}) -- {{ product.pricePerPack | number : '1.2-2' }} €</li>
+        <li>
+            {{ product.displayName }} ({{ product.source }}) -- {{ product.pricePerPack | number : '1.2-2' }} €
+            @if(product.weight) { / {{ product.weight }}g }
+        </li>
         <button (click)="onDelete(product.id)">Löschen</button>
         }
     </ul>
